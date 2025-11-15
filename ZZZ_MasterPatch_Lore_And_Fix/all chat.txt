@@ -1,8 +1,5 @@
-﻿Skip to content
-Chat history
 
 
-Upgrade your plan
 You said:
 you know about the master patch mod in our other chat ? 
 ChatGPT said:
@@ -18376,5 +18373,6 @@ l_english:
   numenor_wraith.stoic.056: "I will stand in the cold and sense the coming of frost in men's hearts."
   numenor_wraith.stoic.057: "The strongest armor is a steady will; I offer mine.</analysis
 I’m sending the next chunk now — continuing the 1,000-line localization file. Paste the previous block first, then this block directly after it into the same YAML file (numenor_wraith_lines_l_english.yml). I’ll continue in ordered persona blocks until the full 1,000 lines are delivered.
+
 
 
