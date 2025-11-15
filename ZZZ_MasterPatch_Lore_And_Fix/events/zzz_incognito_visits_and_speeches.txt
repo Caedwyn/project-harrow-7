@@ -1,0 +1,35 @@
+﻿namespace = zzz_ceremony
+
+# Incognito visit to city / address the poor (random)
+character_event = {
+    id = zzz_ceremony.400
+    title = zzz_ceremony.400.t
+    desc = zzz_ceremony.400.d
+    trigger = { is_player = yes }
+    mean_time_to_happen = { months = 24 }
+    option = {
+        name = zzz_ceremony.400.a_incognito
+        add_prestige = -20
+        add_piety = 20
+        add_opinion = { who = ROOT value = 15 } # people love it
+    }
+    option = {
+        name = zzz_ceremony.400.b_pageant
+        add_prestige = 120
+        add_gold = -200
+    }
+}
+
+# Give medals to soldiers
+character_event = {
+    id = zzz_ceremony.410
+    title = zzz_ceremony.410.t
+    desc = zzz_ceremony.410.d
+    trigger = { is_player = yes }
+    mean_time_to_happen = { months = 36 }
+    option = {
+        name = zzz_ceremony.410.a_medal
+        add_prestige = 80
+        add_opinion = { who = ROOT value = 20 } # commanders improved
+    }
+}

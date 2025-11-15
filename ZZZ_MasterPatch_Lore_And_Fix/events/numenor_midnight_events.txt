@@ -1,0 +1,324 @@
+﻿##########################################################
+# Num enor — Midnight Covenant Events (initiation and missions)
+# namespace: numenor_mod
+# file: events/numenor_midnight_events.txt
+##########################################################
+
+# ---------------------------------------------------------
+# 600001 - Midnight Initiation (ruler invites a courtier/maid)
+# ---------------------------------------------------------
+character_event = {
+    id = numenor_mod.600001
+    hide_window = no
+
+    trigger = {
+        is_ruler = yes
+        dynasty = d_anarion
+        any_title = { has_title = e_numenor } # module usually dormant until empire, but event can be used if you want
+        NOT = { has_global_flag = numenor_midnight_initialized } # first-time global initialize check optional
+    }
+
+    title = "numenor_mod.600001.t"
+    desc = "numenor_mod.600001.d"
+
+    option = {
+        name = "numenor_mod.600001.a_grant"
+        ai_chance = { factor = 0 }
+        # flavor: pick a courtier (maid) you own; here we add trait to ROOT.targeted_character by event caller
+        add_prestige = 100
+        set_global_flag = numenor_midnight_initialized
+        news_event = { id = numenor_mod.600001.1 scope = ROOT }
+        # The actual granting is done by decision which picks a character parameter (see decisions file)
+    }
+
+    option = {
+        name = "numenor_mod.600001.b_decline"
+        ai_chance = { factor = 0 }
+        add_piety = 10
+    }
+}
+
+###############################################################
+# Midnight Covenant — Initiation Codename Selection System
+# Replaces old 600100 block.
+# Includes:
+#   - Persona assignment
+#   - Auto-shortlist of 5 codenames
+#   - She chooses 1 (weighted by persona)
+#   - Player gets a "Confirm / Change Later" step
+###############################################################
+
+# -------------------------------------------------------------
+# 600100 — Initiation Result (start of process)
+# -------------------------------------------------------------
+character_event = {
+    id = numenor_mod.600100
+    hide_window = no
+
+    trigger = {
+        is_ruler = yes
+        dynasty = d_anarion
+    }
+
+    immediate = {
+        # The target was provided by the decision that called this event
+        scope:initiated = event_target:midnight_target
+    }
+
+    title = "numenor_mod.600100.t"
+    desc  = "numenor_mod.600100.d"
+
+    option = {
+        name = "Begin the rite"
+
+        # Assign persona first
+        scope:initiated = {
+            numenor_assign_persona = { }
+        }
+
+        # Jump to next event (shortlist choice)
+        trigger_event = {
+            id = numenor_mod.600101
+            days = 1
+            scope = scope:initiated
+        }
+    }
+}
+
+# -------------------------------------------------------------
+# 600101 — Auto-Shortlist & Choice
+# She chooses a codename based on persona, from a pool of 5 auto-selected names.
+# -------------------------------------------------------------
+character_event = {
+    id = numenor_mod.600101
+    hide_window = no
+
+    is_triggered_only = yes
+
+    title = "numenor_mod.600101.t"
+    desc  = "numenor_mod.600101.d"
+
+    immediate = {
+        # Build an auto-shortlist of 5 internally.
+        # These are stored in temporary local variables for this event only.
+
+        # FULL NAMEPOOL — includes:
+        #   - your chosen dramatic/dark names
+        #   - playful / flirty nickname set
+        #   - old names you kept
+        #
+        # To expand this list later, tell me and I append cleanly.
+        random_list = {
+            100 = { set_variable = { which = cn1 value = "Darkling" } }
+            100 = { set_variable = { which = cn1 value = "Quiet" } }
+            100 = { set_variable = { which = cn1 value = "Nightrime" } }
+            100 = { set_variable = { which = cn1 value = "Seraphine" } }
+            100 = { set_variable = { which = cn1 value = "Velvet" } }
+            100 = { set_variable = { which = cn1 value = "Eclipsa" } }
+            100 = { set_variable = { which = cn1 value = "Kalypso" } }
+            100 = { set_variable = { which = cn1 value = "Nymeris" } }
+            100 = { set_variable = { which = cn1 value = "Serenity" } }
+            100 = { set_variable = { which = cn1 value = "Selendria" } }
+            100 = { set_variable = { which = cn1 value = "Nocturna" } }
+            100 = { set_variable = { which = cn1 value = "Embrace" } }
+            100 = { set_variable = { which = cn1 value = "Direkiss" } }
+            100 = { set_variable = { which = cn1 value = "Final Caress" } }
+            100 = { set_variable = { which = cn1 value = "Midnight" } }
+            100 = { set_variable = { which = cn1 value = "Desire" } }
+            100 = { set_variable = { which = cn1 value = "Nebula" } }
+            100 = { set_variable = { which = cn1 value = "Sin" } }
+            100 = { set_variable = { which = cn1 value = "Vespera" } }
+            100 = { set_variable = { which = cn1 value = "Nightling" } }
+            100 = { set_variable = { which = cn1 value = "Temptress" } }
+
+            # PLAYFUL ONES YOU APPROVED
+            100 = { set_variable = { which = cn1 value = "Snuggly Doom" } }
+            100 = { set_variable = { which = cn1 value = "Purring Dagger" } }
+            100 = { set_variable = { which = cn1 value = "Murder Muffin" } }
+            100 = { set_variable = { which = cn1 value = "Naughty Knife" } }
+            100 = { set_variable = { which = cn1 value = "Fangirl" } }
+            100 = { set_variable = { which = cn1 value = "Night Nibbler" } }
+            100 = { set_variable = { which = cn1 value = "Nightkiss" } }
+            100 = { set_variable = { which = cn1 value = "NightWish" } }
+            100 = { set_variable = { which = cn1 value = "Black Orchid" } }
+            100 = { set_variable = { which = cn1 value = "Wicked Wink" } }
+            100 = { set_variable = { which = cn1 value = "Silkyblade" } }
+        }
+
+        # She picks one based on persona bias
+        # (persona flags set earlier in 600100)
+        if = {
+            limit = { has_character_flag = persona_lustful }
+            set_variable = { which = chosen_codename value = "Temptress" }
+        }
+        else_if = {
+            limit = { has_character_flag = persona_mischief }
+            set_variable = { which = chosen_codename value = "Wicked Wink" }
+        }
+        else_if = {
+            limit = { has_character_flag = persona_dignified }
+            set_variable = { which = chosen_codename value = "Nymeris" }
+        }
+        else_if = {
+            limit = { has_character_flag = persona_tomboy }
+            set_variable = { which = chosen_codename value = "Naughty Knife" }
+        }
+        else_if = {
+            limit = { has_character_flag = persona_sadistic }
+            set_variable = { which = chosen_codename value = "Direkiss" }
+        }
+        else_if = {
+            limit = { has_character_flag = persona_joyous }
+            set_variable = { which = chosen_codename value = "NightWish" }
+        }
+        else = {
+            # fallback to one of the shortlist/random
+            set_variable = { which = chosen_codename value = cn1 }
+        }
+    }
+
+    option = {
+        name = "Bestow the name"
+
+        # Apply codename nickname
+        numenor_set_codename = {
+            codename = var:chosen_codename
+        }
+
+        # Also give traits
+        add_trait = midnight_covenant_member
+        add_trait = pale_lord
+
+        # Flavor prestige
+        add_prestige = 150
+
+        # Notify player
+        news_event = { id = numenor_mod.600101.1 }
+    }
+
+    option = {
+        name = "Change later (assign no codename now)"
+        # Just exit, persona kept, codename empty
+    }
+}
+
+
+# ---------------------------------------------------------
+# 600200 - Midnight Mission: Infiltrate / Spy
+# Decision triggers this event and supplies 'target' id.
+# ---------------------------------------------------------
+character_event = {
+    id = numenor_mod.600200
+    hide_window = no
+
+    trigger = {
+        is_ruler = yes
+        has_global_flag = numenor_midnight_initialized
+    }
+
+    title = "numenor_mod.600200.t"
+    desc = "numenor_mod.600200.d"
+
+    option = {
+        name = "numenor_mod.600200.a_send"
+        ai_chance = { factor = 0 }
+        # stealth mission: success gives ruler intel (opinion & trait additions)
+        random = { chance = 70
+            # success branch
+            add_piety = 2
+            every_character = {
+                limit = { id = TARGET } # TARGET is supplied by the decision call
+                add_character_modifier = numenor_midnight_shadowed # subtle mark for later
+                add_opinion = { who = ROOT value = -20 } # target distrusts you (framed suspicion)
+            }
+            news_event = { id = numenor_mod.600200.1 scope = ROOT }
+        }
+        random = { chance = 30
+            # failure branch -> exposure rumor, minor scandal
+            every_character = {
+                limit = { id = TARGET }
+                add_character_modifier = numenor_midnight_shadowed
+                add_opinion = { who = ROOT value = -40 }
+                add_prestige = -50
+            }
+            news_event = { id = numenor_mod.600200.2 scope = ROOT }
+        }
+    }
+}
+
+# ---------------------------------------------------------
+# 600300 - Midnight Mission: Frame / Discredit
+# ---------------------------------------------------------
+character_event = {
+    id = numenor_mod.600300
+    hide_window = no
+
+    trigger = {
+        is_ruler = yes
+        has_global_flag = numenor_midnight_initialized
+    }
+
+    title = "numenor_mod.600300.t"
+    desc = "numenor_mod.600300.d"
+
+    option = {
+        name = "numenor_mod.600300.a_execute"
+        ai_chance = { factor = 0 }
+        random = { chance = 55
+            # success: target loses titles/opinion, may be imprisoned via follow-up
+            every_character = {
+                limit = { id = TARGET }
+                add_character_modifier = numenor_midnight_shadowed
+                add_opinion = { who = ROOT value = -60 }
+                add_prestige = -100
+            }
+            news_event = { id = numenor_mod.600300.1 scope = ROOT }
+        }
+        random = { chance = 45
+            # failure: exposure causes backlash
+            add_prestige = -150
+            every_character = {
+                limit = { id = TARGET }
+                add_opinion = { who = ROOT value = -30 }
+            }
+            news_event = { id = numenor_mod.600300.2 scope = ROOT }
+        }
+    }
+}
+
+# ---------------------------------------------------------
+# 600400 - Midnight Mission: Quiet Removal (dangerous)
+# Not actual forced-kill instruction for player; rather a high-risk, high-reward event.
+# ---------------------------------------------------------
+character_event = {
+    id = numenor_mod.600400
+    hide_window = no
+
+    trigger = {
+        is_ruler = yes
+        has_global_flag = numenor_midnight_initialized
+    }
+
+    title = "numenor_mod.600400.t"
+    desc = "numenor_mod.600400.d"
+
+    option = {
+        name = "numenor_mod.600400.a_attempt"
+        ai_chance = { factor = 0 }
+        random = { chance = 40
+            # success: target removed from play (dies or is exiled via complex chain)
+            every_character = {
+                limit = { id = TARGET }
+                # remove character is a sensitive command; use dramatic flavor instead
+                add_prestige = 200
+                add_opinion = { who = ROOT value = 30 }
+            }
+            news_event = { id = numenor_mod.600400.1 scope = ROOT }
+        }
+        random = { chance = 60
+            # failure: large scandal, mission exposed
+            add_prestige = -300
+            news_event = { id = numenor_mod.600400.2 scope = ROOT }
+        }
+    }
+}

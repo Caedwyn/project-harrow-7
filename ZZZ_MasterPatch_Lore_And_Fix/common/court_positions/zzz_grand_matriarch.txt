@@ -1,0 +1,11 @@
+﻿grand_matriarch = {
+    category = council
+    allowed_for_government = { feudal clan imperial tribal }
+    appointable = yes
+    replace = court_chaplain
+    is_powerful_vassal_eligible = no
+    ai_value = 200
+    on_employment = {
+        add_character_modifier = { modifier = grand_matriarch_reverence days = -1 }
+    }
+}

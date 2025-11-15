@@ -1,0 +1,13 @@
+﻿# Aerulean overlay — extend existing faith (Option B)
+# Ensure religion key used by Elf Destiny is honored; we add tenets/virtues and small overrides.
+
+# Add virtues/sins for Aerulean faith
+# These keys will be referenced by events / tenets
+aerulean_extra_definitions = {
+    virtues = { lustful brave Pure-blooded Diligent Albino Beautiful Genius Intelligent Pretty/Handsome Shrewd Strong Schemer Hale Pensive Seducer / Seductress Herbalist Scholar Witch Gardener Venerated Ancestor Detractor of the Caliphate Curious Charming Born in the Purple Living Legend }
+    sins = { chaste craven Lazy Gluttonous Hideous Ugly Imbecile Stupid Feeble Dull Weak Hajji Mujahid Sayyid Denounced Lunatic Supporter of Caliphal Authority Inbred Sodomite Kinslayer Hashishiyah  }
+}
+
+# Add tenet reference (tenet defined separately)
+# This does not remove existing tenets; it attaches new tenets via events/decisions
+# (In-game reformation will permit editing.)

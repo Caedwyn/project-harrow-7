@@ -1,0 +1,32 @@
+﻿doctrine_parameter_cousin_marriage = yes
+
+doctrine_parameter_close_family_marriage = no
+doctrine_parameter_sibling_marriage = no
+doctrine_parameter_parent_child_marriage = no
+doctrine_parameter_uncle_niece_marriage = no
+doctrine_parameter_aunt_nephew_marriage = no
+
+doctrine_marriage_restrictions = {
+    cousin_marriage = yes
+    close_family_marriage = no
+}
+
+aerulean_religion = {
+    # This assumes the religion is named "aerulean_religion" in Elf Destiny
+    override_doctrines = yes
+    doctrines = {
+        marriage_type = {
+            cousin_marriage = yes
+            close_family_marriage = no
+        }
+    }
+    tenets = {
+        unrestricted_marriage = {
+            description = "Marriage between cousins is accepted to preserve the purity of elven bloodlines, but direct kinship is forbidden."
+            marriage_rules = {
+                close_family_marriage = no
+                cousin_marriage = yes
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+﻿on_character_created = {
+    if = { has_faith = aerulean_overhaul add_character_modifier = aerulean_respects_oldfaiths }
+    if = { has_faith = aerulean_overhaul add_character_modifier = aerulean_distrusts_foreign_mortals }
+    if = { NOT = { has_faith = aerulean_overhaul } add_character_modifier = non_aerulean_envy_elves }
+}

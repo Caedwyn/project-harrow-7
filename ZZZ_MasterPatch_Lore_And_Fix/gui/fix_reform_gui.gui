@@ -1,0 +1,9 @@
+﻿window_type = {
+    name = "fix_reform_gui"
+    back_ground = "gfx/interface/shared/empty.dds"
+    # remove tooltip_enabled, duplicate 'title' children, etc.
+    container = {
+        name = "safe_container"
+        size = { width = 100 height = 100 }
+    }
+}

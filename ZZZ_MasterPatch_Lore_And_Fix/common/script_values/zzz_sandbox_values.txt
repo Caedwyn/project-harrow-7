@@ -1,0 +1,2 @@
+﻿religion_reform_max_tenets = 30
+zzz_all_tenets_visible = yes

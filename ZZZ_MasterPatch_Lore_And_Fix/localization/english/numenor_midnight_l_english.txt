@@ -1,0 +1,38 @@
+﻿l_english:
+  # Traits descriptions
+  pale_lord_desc:0 "A Pale Lord is one who has embraced the stillness and learned the night's craft. Ageless, seductive, and terrifyingly capable."
+  sanguine_blight_desc:0 "A Sanguine Blight is a mortal who sought immortality by aping the first rites. They are powerful, unstable, and feared across the borderlands."
+  midnight_covenant_member_desc:0 "A radiant shadow: a Midnight Covenant exemplar, perfected in art, mind, and presence. Loyal only to the Everking."
+
+  # Initiation
+  numenor_mod.600001.t:0 "An Offer of the Night"
+  numenor_mod.600001.d:0 "One of your finest courtiers kneels; in her hand a ring of black silver and on her brow a steady, hopeful light. Will you grant the boon of the Veil, and bind her to the Midnight Covenant?"
+  numenor_mod.600001.a_grant:0 "Grant the Veil and bind her to the Covenant."
+  numenor_mod.600001.b_decline:0 "Not today."
+
+  numenor_mod.600100.t:0 "The Veil Descends"
+  numenor_mod.600100.d:0 "In private, beneath a moonlit tapestry, you offer the cold gift. The maiden rises reborn in shadow and oath."
+  numenor_mod.600100.a_accept:0 "Welcome her to the Covenant."
+
+  numenor_mod.600100.1:0 "A new hand moves in the dark, patient and beautiful."
+  numenor_mod.600001.1:0 "A hush has fallen in court as whispers spread of the Everking's newest shadow."
+
+  # Missions
+  numenor_mod.600200.t:0 "Midnight Dispatch: Infiltrate"
+  numenor_mod.600200.d:0 "A midnight courtesan slips beyond town walls to learn names, beds, and secrets. If successful, we will know our enemies' hearts."
+  numenor_mod.600200.1:0 "The spy returns with letters, names, and dark apologies."
+  numenor_mod.600200.2:0 "The spy was nearly caught. A rumor grows louder."
+
+  numenor_mod.600300.t:0 "Midnight Operation: Discredit"
+  numenor_mod.600300.d:0 "Fabrications, mislaid letters, and a carefully placed coin—so simple, so effective. The target's reputation will crumble if the operation succeeds."
+  numenor_mod.600300.1:0 "The target's name is mud in the court. Allies drift away."
+  numenor_mod.600300.2:0 "The falsehood was seen through. Your hand is suspected."
+
+  numenor_mod.600400.t:0 "Midnight Task: Quiet Removal"
+  numenor_mod.600400.d:0 "A quiet truth: sometimes an untidy threat must be removed from the chessboard. The Covenant offers a solution—dangerous and clean, if it succeeds."
+  numenor_mod.600400.1:0 "The threat is gone; the court breathes a little freer."
+  numenor_mod.600400.2:0 "The attempt failed, and the echoes will be felt for years."
+
+  # Mission launcher (decision-flavor)
+  numenor_mod.midnight_mission.launch.t:0 "Summon the Covenant"
+  numenor_mod.midnight_mission.launch.d:0 "Which hand shall you send? Whose name should be made to falter in the dull light of day?"

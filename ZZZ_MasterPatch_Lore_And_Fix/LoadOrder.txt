@@ -1,0 +1,12 @@
+...your other mods...
+ZZZ_MasterPatch_Lore_And_Fix   <-- this mod (place above cosmetics)
+Beauty and the Breast
+Better Barbershop
+Better Ruler Designer
+Color Picker for Clothes
+More Holding Graphics
+MHG + CFP Compatch
+MHG + Personal Quarters
+Elf Destiny (all submods)
+Carnalitas (all submods)
+...visual/portraits last...

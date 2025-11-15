@@ -1,0 +1,41 @@
+﻿# ======================================================
+#  AERULEAN BIASES
+# ======================================================
+
+aerulean_respects_oldfaiths = {
+    opinion = {
+        trigger = {
+            OR = {
+                religion_group = pagan_group
+                religion_group = jewish_group
+                religion_group = zoroastrian_group
+            }
+        }
+        value = 15
+    }
+}
+
+aerulean_distrusts_foreign_mortals = {
+    opinion = {
+        trigger = {
+            OR = {
+                culture_group = arabic_group
+                culture_group = turkic_group
+                culture_group = mongolic_group
+                culture_group = indian_group
+                culture_group = berber_group
+                culture_group = west_african_group
+                culture_group = east_african_group
+                culture_group = chinese_group
+            }
+        }
+        value = -40
+    }
+}
+
+non_aerulean_envy_elves = {
+    opinion = {
+        trigger = { culture_group = elven_group }
+        value = -30
+    }
+}

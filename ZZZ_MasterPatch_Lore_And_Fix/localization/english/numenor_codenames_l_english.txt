@@ -1,0 +1,2 @@
+﻿l_english:
+  nick_covenant_codename:0 "Codename: $custom$"

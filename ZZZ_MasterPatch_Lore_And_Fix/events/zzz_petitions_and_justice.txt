@@ -1,0 +1,52 @@
+﻿namespace = zzz_petitions
+
+# Petitions: citizens complain about a corrupt noble
+character_event = {
+    id = zzz_petitions.300
+    title = zzz_petitions.300.t
+    desc = zzz_petitions.300.d
+    trigger = { is_player = yes }
+    mean_time_to_happen = { months = 12 }
+    option = {
+        name = zzz_petitions.300.a_investigate
+        create_event = { id = zzz_petitions.301 days = 30 } # investigation
+    }
+    option = {
+        name = zzz_petitions.300.b_ignore
+        add_prestige = -30
+    }
+}
+
+# Investigation outcome
+character_event = {
+    id = zzz_petitions.301
+    title = zzz_petitions.301.t
+    desc = zzz_petitions.301.d
+    trigger = { is_player = yes }
+    option = {
+        name = zzz_petitions.301.a_trial
+        create_event = { id = zzz_petitions.310 days = 7 } # trial event
+    }
+    option = {
+        name = zzz_petitions.301.b_warn
+        add_opinion = { who = ROOT value = -20 }
+    }
+}
+
+# Trial: punish embezzlement or corruption
+character_event = {
+    id = zzz_petitions.310
+    title = zzz_petitions.310.t
+    desc = zzz_petitions.310.d
+    trigger = { is_player = yes }
+    option = {
+        name = zzz_petitions.310.a_punish
+        add_prestige = 100
+        add_gold = 500
+    }
+    option = {
+        name = zzz_petitions.310.b_pardon
+        add_piety = 50
+        add_opinion = { who = ROOT value = 30 }
+    }
+}

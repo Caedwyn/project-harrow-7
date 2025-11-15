@@ -1,0 +1,43 @@
+﻿##########################################################
+# Num enor — Midnight Covenant Decisions (initiate & missions)
+# file: common/decisions/numenor_midnight_decisions.txt
+##########################################################
+
+# Initiate a courtier into the Midnight Covenant: only you (Anarion dynasty) can do this.
+decision = {
+    id = NUMENOR_INITIATE_MIDNIGHT
+    potential = {
+        is_ruler = yes
+        dynasty = d_anarion
+        any_title = { has_title = e_numenor } # or remove if you want earlier
+    }
+    allow = {
+        prestige = 250
+    }
+    effect = {
+        # opens the initiation event and sets up for the target selection
+        trigger_event = { id = numenor_mod.600100 days = 1 }
+        add_piety = -5
+    }
+    ai_will_do = { factor = 0.0 }
+}
+
+# Midnight Mission chooser decision — pick a target and mission type
+decision = {
+    id = NUMENOR_MIDNIGHT_MISSION
+    potential = {
+        is_ruler = yes
+        has_global_flag = numenor_midnight_initialized
+        dynasty = d_anarion
+    }
+    allow = {
+        gold = 100
+        intrigue = 20
+    }
+    effect = {
+        # opens a chooser for mission type, then triggers appropriate event with target param
+        create_message = { title = "numenor_mod.midnight_mission.launch.t" desc = "numenor_mod.midnight_mission.launch.d" }
+        # actual event call will be triggered by UI/decision selection in practice
+    }
+    ai_will_do = { factor = 0.0 }
+}

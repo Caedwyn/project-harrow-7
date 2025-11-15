@@ -1,0 +1,37 @@
+﻿# twilight_awards.txt
+# Basic award definitions (IDs + icons). Localisation keys in localisation file.
+award = {
+    id = twilight_legion_award_medal_of_honor
+    name = "twilight_legion_award_medal_of_honor_name"
+    icon = "gfx/interface/icons/awards/award_medal_01.dds"
+}
+
+award = {
+    id = twilight_legion_award_imperial_service
+    name = "twilight_legion_award_imperial_service_name"
+    icon = "gfx/interface/icons/awards/award_medal_02.dds"
+}
+
+award = {
+    id = twilight_legion_award_aurelean_star
+    name = "twilight_legion_award_aurelean_star_name"
+    icon = "gfx/interface/icons/awards/award_medal_03.dds"
+}
+
+award = {
+    id = twilight_legion_award_twilights_mandate
+    name = "twilight_legion_award_twilights_mandate_name"
+    icon = "gfx/interface/icons/awards/award_medal_04.dds"
+}
+
+award = {
+    id = twilight_legion_award_crest_dominion
+    name = "twilight_legion_award_crest_dominion_name"
+    icon = "gfx/interface/icons/awards/award_medal_05.dds"
+}
+
+award = {
+    id = twilight_legion_award_everkings_decree
+    name = "twilight_legion_award_everkings_decree_name"
+    icon = "gfx/interface/icons/awards/award_medal_06.dds"
+}

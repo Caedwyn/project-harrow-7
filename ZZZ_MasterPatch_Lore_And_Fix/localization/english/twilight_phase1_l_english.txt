@@ -1,0 +1,31 @@
+﻿l_english:
+ twilight_legion_trait_midnight_covenant_desc:0 "A secret sisterhood — spies, seducers and shadow guards of the Everking."
+ twilight_legion_trait_legionary_desc:0 "A member of the Twilight Legion, the Empire's elite martial institution."
+ everguard_trait_favored_desc:0 "A favored servant of the Everking."
+
+ twilight_legion_award_medal_of_honor_name:0 "Medal of Honor"
+ twilight_legion_award_medal_of_honor_desc:0 "\"Bound by Honor, Tested by Fire.\" / \"Courage forged into legacy.\""
+
+ twilight_legion_award_imperial_service_name:0 "Imperial Service Medal"
+ twilight_legion_award_imperial_service_desc:0 "\"Heroes among the immortals.\" / \"Supreme honor, eternal glory.\""
+
+ twilight_legion_award_aurelean_star_name:0 "Aurelean Star"
+ twilight_legion_award_aurelean_star_desc:0 "\"Worn by the Worthy, Feared by the Enemy.\" / \"Will Made Manifest.\""
+
+ twilight_legion_award_twilights_mandate_name:0 "Twilight's Mandate"
+ twilight_legion_award_twilights_mandate_desc:0 "\"The Summit of Valor, the Peak of Loyalty.\" / \"Excellence Recognized.\""
+
+ twilight_legion_award_crest_dominion_name:0 "Crest of Dominion"
+ twilight_legion_award_crest_dominion_desc:0 "\"Bearer of the Realm’s Unbroken Will.\" / \"Empire Endures Through the Worthy.\""
+
+ twilight_legion_award_everkings_decree_name:0 "Everking's Decree"
+ twilight_legion_award_everkings_decree_desc:0 "\"Dominion Absolute, Glory Immortal.\""
+
+ dynasty_motto_numenor:0 "Our Name Eternal — Our Fury Silent."
+
+ twilight_legion_credo:0 "\"Calm in stance, ruinous in purpose.\""
+ twilight_vanguard_cry:0 "\"Let others roar — I end the roar.\""
+ soldier_edge_line:0 "\"In the Everking’s name, I am the edge.\""
+
+ # tiny test messages
+ twp1_test_loaded:0 "Twilight Phase 1 files loaded successfully. Use the event console to test events when ready."

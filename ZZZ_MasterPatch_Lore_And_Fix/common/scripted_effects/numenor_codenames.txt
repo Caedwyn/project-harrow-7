@@ -1,0 +1,162 @@
+﻿###############################################################
+# common/scripted_effects/numenor_codenames.txt
+# Numenor — Midnight Covenant codename & persona engine
+# Effects used by initiation events and flavor systems.
+#
+# - numenor_set_codename: applies the codename as a visible nickname
+#   and marks the character as a covenant member (non-destructive).
+# - numenor_remove_codename: removes the codename nickname and flag.
+# - numenor_assign_persona: assigns a persona flag (dignified, lustful, etc.)
+#   based on existing traits; falls back to a random persona.
+# - numenor_clear_persona: removes any persona flags.
+#
+# Notes:
+# - This file intentionally avoids dynamic per-codename character_flags to
+#   minimize compatibility issues with other mods. The codename itself is
+#   stored as a nickname (custom text) and a simple boolean flag marks
+#   "has been assigned".
+# - Only player-triggered events should call these effects (AI will be blocked).
+###############################################################
+
+# Assign a codename to the scoped character (called from events)
+numenor_set_codename = {
+    parameter:codename = ""
+
+    # Small safety guard: do nothing if codename empty
+    if = {
+        limit = { check_variable = { which = codename value = "" } }
+        # no-op
+    }
+    else = {
+        # remove any previous nickname of this special slot (clean)
+        remove_nickname = { nickname = nick_covenant_codename }
+
+        # Add the codename as a nickname: "Codename: $custom$"
+        add_nickname = {
+            nickname = nick_covenant_codename
+            custom = codename
+        }
+
+        # Mark character as having a covenant codename assigned (simple flag)
+        set_character_flag = numenor_codename_assigned
+
+        # Slight hidden bonus: mark as part of the network (non-visible buff)
+        add_character_modifier = { modifier = numenor_midnight_loyal days = -1 }
+    }
+}
+
+# Remove codename (used when retiring/retiring-soft)
+numenor_remove_codename = {
+    # Remove the special nickname and clear the assigned flag
+    remove_nickname = { nickname = nick_covenant_codename }
+    clear_character_flag = numenor_codename_assigned
+
+    # Remove persona flags and membership modifier if present
+    remove_character_modifier = numenor_midnight_loyal
+    numenor_clear_persona = { }
+}
+
+# Helper: clear all persona flags (scoped character)
+numenor_clear_persona = {
+    clear_character_flag = persona_dignified
+    clear_character_flag = persona_tomboy
+    clear_character_flag = persona_lustful
+    clear_character_flag = persona_joyous
+    clear_character_flag = persona_stoic
+    clear_character_flag = persona_mischief
+    clear_character_flag = persona_devoted
+    clear_character_flag = persona_sadistic
+    clear_character_flag = persona_huntress
+}
+
+# Assign a persona to the scoped character (tries trait heuristics first,
+# otherwise falls back to a random persona). Personas influence flavor lines
+# and the initiate's choice when presented with multiple codenames.
+numenor_assign_persona = {
+    # Clear any previous personas (safe re-assign)
+    numenor_clear_persona = { }
+
+    # Heuristic mapping by existing common traits (these are typical CK3 traits)
+    # If multiple conditions are true, the first match wins (ordered by priority).
+    if = {
+        limit = { has_trait = trait_lustful }
+        set_character_flag = persona_lustful
+    }
+    else_if = {
+        limit = { has_trait = trait_diligent }
+        set_character_flag = persona_dignified
+    }
+    else_if = {
+        limit = { has_trait = trait_brave }
+        set_character_flag = persona_tomboy
+    }
+    else_if = {
+        limit = { has_trait = trait_kind } # kind -> joyous/ domestic
+        set_character_flag = persona_joyous
+    }
+    else_if = {
+        limit = { has_trait = trait_deceitful }
+        set_character_flag = persona_mischief
+    }
+    else_if = {
+        limit = { has_trait = trait_proud }
+        set_character_flag = persona_stoic
+    }
+    else_if = {
+        limit = { has_trait = trait_cruel }
+        set_character_flag = persona_sadistic
+    }
+    else_if = {
+        limit = { has_trait = trait_prowess } # fallback for martial types
+        set_character_flag = persona_huntress
+    }
+    else = {
+        # If no strong trait signals, pick randomly among the core personas.
+        random = {
+            chance = 15
+            set_character_flag = persona_dignified
+        }
+        random = {
+            chance = 15
+            set_character_flag = persona_tomboy
+        }
+        random = {
+            chance = 15
+            set_character_flag = persona_lustful
+        }
+        random = {
+            chance = 15
+            set_character_flag = persona_joyous
+        }
+        random = {
+            chance = 15
+            set_character_flag = persona_mischief
+        }
+        random = {
+            chance = 15
+            set_character_flag = persona_stoic
+        }
+        random = {
+            chance = 10
+            set_character_flag = persona_sadistic
+        }
+    }
+}
+
+# Utility: return a persona tag name for localization or branching.
+# (Event authors can test for persona flags directly; this effect just documents.)
+numenor_persona_hint = {
+    if = { limit = { has_character_flag = persona_dignified }  }
+    else_if = { limit = { has_character_flag = persona_tomboy } }
+    else_if = { limit = { has_character_flag = persona_lustful } }
+    else_if = { limit = { has_character_flag = persona_joyous } }
+    else_if = { limit = { has_character_flag = persona_mischief } }
+    else_if = { limit = { has_character_flag = persona_stoic } }
+    else_if = { limit = { has_character_flag = persona_sadistic } }
+    else_if = { limit = { has_character_flag = persona_huntress } }
+    else = { } # no-op
+}
+
+###############################################################
+# End of numenor_codenames.txt
+###############################################################

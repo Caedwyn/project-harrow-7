@@ -1,0 +1,58 @@
+﻿namespace = zzz_protection
+
+# 1) Midnight Covenant discovers a plot against the Ever-King
+character_event = {
+    id = zzz_protection.100
+    title = zzz_protection.100.t
+    desc = zzz_protection.100.d
+    trigger = {
+        is_ai = no
+        has_character_modifier = midnight_covenant_member
+        liege = { is_player = yes }
+    }
+    mean_time_to_happen = { months = 18 }
+    option = {
+        name = zzz_protection.100.a
+        create_character = { } # optional flavor: spawn a secret agent
+        liege = {
+            add_prestige = 50
+        }
+        hidden_effect = {
+            add_character_modifier = { modifier = midnight_covenant_protector days = -1 }
+        }
+    }
+}
+
+# 2) Covenant foils assassination attempt (reported to the Ever-King)
+character_event = {
+    id = zzz_protection.110
+    title = zzz_protection.110.t
+    desc = zzz_protection.110.d
+    trigger = {
+        has_character_modifier = midnight_covenant_protector
+        liege = { is_player = yes }
+    }
+    mean_time_to_happen = { months = 24 }
+    option = {
+        name = zzz_protection.110.a
+        liege = { add_prestige = 100 }
+        add_trait = trait_diligent
+    }
+}
+
+# 3) Covenant rescues kidnapped kin (multi-step rescue)
+character_event = {
+    id = zzz_protection.120
+    title = zzz_protection.120.t
+    desc = zzz_protection.120.d
+    trigger = {
+        is_player = yes
+        has_character_modifier = midnight_covenant_member
+    }
+    mean_time_to_happen = { months = 36 }
+    option = {
+        name = zzz_protection.120.a
+        add_prestige = 200
+        add_piety = 50
+    }
+}

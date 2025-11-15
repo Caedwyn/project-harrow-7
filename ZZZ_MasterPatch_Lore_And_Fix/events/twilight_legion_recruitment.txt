@@ -1,0 +1,67 @@
+﻿# twilight_legion_recruitment.txt
+# Twilight Legion - Recruitment / Redemption Decision
+# Paste into: <your mod>/events/twilight_legion_recruitment.txt
+
+namespace = twilight_legion
+
+# Decision-like event for recruiting to Twilight Legion
+character_event = {
+    id = twilight_legion.0100
+    hide_window = no
+    is_triggered_only = no
+
+    trigger = {
+        # Only appear for an Emperor-level ruler (empire formed)
+        # Generic check for empire-tier realm; adjust if your CK3 version differs.
+        realm_tier = empire
+        is_ai = no
+        is_player = yes
+    }
+
+    immediate = {
+        # nothing immediate; display options
+    }
+
+    # Flavor text in localisation keys (see localisation file)
+    desc = "twilight_legion.0100.desc"
+    picture = GFX_evt_council_meeting
+
+    option = {
+        name = "twilight_legion.0100.opt.join_glorious" # Join gloriously
+        # Glorious join: recipient gains the Legion trait and prestige
+        ai_chance = { factor = 0 }
+        add_trait = trait_twilight_legionary_member
+        add_prestige = 100
+        add_stability = 0
+        custom_tooltip = "twilight_legion.0100.opt.join_glorious.tooltip"
+    }
+
+    option = {
+        name = "twilight_legion.0100.opt.renounce_claim" # Renounce claim & join
+        ai_chance = { factor = 0 }
+        # Player chooses to renounce claim to throne and join the legion for honor
+        # This uses a safe approach: remove claimant status and add trait
+        remove_claim = yes
+        add_trait = trait_twilight_legionary_member
+        add_prestige = 150
+        add_opinion = {
+            who = ROOT
+            modifier = 10
+        }
+        # We add a temporary 'renounced_heir' marker (used by other events)
+        set_character_flag = has_renounced_claim_for_legion
+        custom_tooltip = "twilight_legion.0100.opt.renounce_claim.tooltip"
+    }
+
+    option = {
+        name = "twilight_legion.0100.opt.join_for_shame" # Shame redemption
+        ai_chance = { factor = 0 }
+        # Player accepts a period of service to restore honor instead of full privileges:
+        add_trait = trait_twilight_legionary_member
+        add_prestige = 50
+        # Add a timed effect: a 'service' flag for 10 years (3650 days)
+        set_character_flag = twilight_legion_service_active
+        # you can later remove flag with an event that grants a medal
+        custom_tooltip = "twilight_legion.0100.opt.join_for_shame.tooltip"
+    }
+}

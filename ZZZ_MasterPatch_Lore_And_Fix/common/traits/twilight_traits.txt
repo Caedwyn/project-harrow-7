@@ -1,0 +1,36 @@
+﻿# twilight_traits.txt
+# Phase 1 traits for Twilight Masterpatch (v1.17.0)
+# Prefix: twilight_legion_, everguard_, numenor_
+
+trait = {
+    name = twilight_legion_trait_midnight_covenant
+    opposite = no_trait
+    icon = "gfx/interface/icons/traits/trait_midnight_covenant.dds"
+    modifier = {
+        intrigue = 0.10
+        diplomacy = -0.05
+    }
+    desc = "twilight_legion_trait_midnight_covenant_desc"
+}
+
+trait = {
+    name = twilight_legion_trait_legionary
+    opposite = no_trait
+    icon = "gfx/interface/icons/traits/trait_twilight_legionary.dds"
+    modifier = {
+        martial = 0.10
+        stewardship = 0.02
+    }
+    desc = "twilight_legion_trait_legionary_desc"
+}
+
+trait = {
+    name = everguard_trait_favored
+    opposite = no_trait
+    icon = "gfx/interface/icons/traits/trait_everguard_favored.dds"
+    modifier = {
+        prestige = 0.05
+        monthly_piety = 0.02
+    }
+    desc = "everguard_trait_favored_desc"
+}

@@ -1,0 +1,63 @@
+﻿##########################################################
+# numenor_midnight_modifiers.txt
+# loyalty, shadow marks, and item-effect placeholders
+##########################################################
+
+# Loyalty modifier: very loyal to ROOT (the Everking)
+numenor_midnight_loyal = {
+    opinion = { who = ROOT value = 80 } # extremely loyal
+    intrigue = 6
+    monthly_prestige = 2.0
+    hidden = yes
+}
+
+# Shadowed marker applied to targets after operations (framing / scandal)
+numenor_midnight_shadowed = {
+    opinion = { who = ROOT value = -50 }
+    prestige = -75
+    monthly_prestige = -1.0
+    hidden = yes
+}
+
+# Item buffs (applied to character via grant item events)
+numenor_item_nightsteel_dirks = {
+    martial = 2
+    prowess = 1
+    add_scheme_success = 10   # flavour numeric proxy; tweak if your stack uses other keys
+    hidden = yes
+}
+
+numenor_item_hollow_shard = {
+    martial = 1
+    add_scheme_success = 6
+    hidden = yes
+}
+
+numenor_item_silvershadow_mask = {
+    intrigue = 3
+    seduction = 2
+    avoid_detection = 15     # flavour proxy for stealth success, hidden
+    hidden = yes
+}
+
+numenor_item_nightweave_mantle = {
+    intrigue = 2
+    martial = 1
+    escape_chance = 10       # flavor proxy; hidden
+    hidden = yes
+}
+
+numenor_item_seal_of_dark_eminence = {
+    intrigue = 2
+    monthly_prestige = 1.0
+    loyalty_boost = 15       # flavor opcode; hidden
+    hidden = yes
+}
+
+# HQ permanent buff (House of Nightfall)
+numenor_house_nightfall_buff = {
+    # permanent while HQ active / controlled by the order
+    add_scheme_success = 12
+    monthly_prestige = 3.0
+    hidden = yes
+}

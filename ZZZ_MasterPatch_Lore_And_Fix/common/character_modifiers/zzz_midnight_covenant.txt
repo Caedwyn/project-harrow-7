@@ -1,0 +1,34 @@
+﻿midnight_covenant_member = {
+    icon = intrigue
+    is_good = yes
+    monthly_scheme_power_add = 0.30
+    scheme_discovery_chance_add = -0.40
+    attraction_opinion = 50
+    prowess = 5
+    intrigue = 8
+    diplomacy = 2
+    learning = 1
+    description = "A sworn sister of the Midnight Covenant – veiled, disciplined, and devoted to the Ever-King."
+}
+
+midnight_covenant_protector = {
+    icon = defense
+    is_good = yes
+    personal_combat_bonus = 0.50
+    prestige = 50
+    description = "Assigned to the Ever-King's immediate protection detail in secret."
+}
+
+covenant_favor = {
+    intrigue = 1
+    hostile_scheme_success_chance = 0.05
+    scheme_discovery_chance = -0.05
+    desc = "Empowered by recent induction into the Midnight Covenant."
+}
+
+midnight_covenant_initiate = {
+    intrigue = 2
+    attraction_opinion = 20
+    scheme_power = 0.1
+    desc = "Newly inducted member of the Midnight Covenant, learning the secrets of shadow and desire."
+}

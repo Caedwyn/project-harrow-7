@@ -1,0 +1,14 @@
+﻿##########################################################
+# numenor_item_pools.txt
+# Names used for gifts and events
+##########################################################
+
+numenor_midnight_daggers = { "Moon Shard" "Phantom Shard" "Night Lure" "Wraith" "Velyndor" "Shadow Reign" "Nightsteel Dirk" "Moonfall Fang" "Umbral Thorn" "Veil-Keen" "Dusk's Whisper" "Silvershade Bite" "Ghosttalon" "Gloamrazor" "Shadebrand" "Eclipse Needle" }
+
+numenor_midnight_throwers = { "Hollow Shard" "Mist-Slip" "Whisperknife" "Veil-Tip" "Hollow Shard" }
+
+numenor_midnight_masks = { "Silvershadow" "Mask of Murmurs" "Whispering Diadem" "Mask of Still Waters" "Veiled Starlace" "Silken Phantom Mask" "Nightglass" "Veil of Rapture" }
+
+numenor_midnight_cloaks = { "Nightweave Mantle" "Cloak of Silent Steps" "Moonfall Shroud" "Duskwoven Veil" "Shroud of the Hidden Court" }
+
+numenor_midnight_trinkets = { "Seal of Dark Eminence" "Ring of the Silent Oath" "Necklet of the Nightward" "Whisperchain Necklace" "Nightbind Circlet" }

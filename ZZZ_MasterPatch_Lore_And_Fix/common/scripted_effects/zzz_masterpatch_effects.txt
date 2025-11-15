@@ -1,0 +1,14 @@
+﻿# Utility stubs and effects used by events
+zzz_grant_midnight_member = {
+    add_character_modifier = { modifier = midnight_covenant_member days = -1 }
+}
+
+zzz_assign_protector = {
+    add_character_modifier = { modifier = midnight_covenant_protector days = -1 }
+}
+
+# apply severe penalty when a sibling-marriage is confirmed (manual enforcement flow)
+zzz_apply_sibling_marriage_penalty = {
+    add_opinion = { who = ROOT value = -200 }
+    remove_spouse = { who = ROOT } # offers forced annulment if used carefully
+}

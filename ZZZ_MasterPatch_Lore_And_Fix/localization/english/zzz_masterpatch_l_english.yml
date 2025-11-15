@@ -1,0 +1,18 @@
+﻿l_english:
+  unreformed_organized_faith_name:0 "Unreformed Organized Faith"
+  doctrine_core_elf_tenets_name:0 "Elven Tenets"
+  elf_hostility_group_name:0 "Elven Hostility"
+  loyalty_pledge_title:0 ""
+  regalia_impresses_attendees_title:0 ""
+  supporters_bond_title:0 ""
+  detractors_bond_title:0 ""
+  befriend_loyalists_title:0 ""
+  supporter_stresses_detractor_title:0 ""
+  praised_king_together_title:0 ""
+  bonded_over_help_title:0 ""
+  injured_in_crowd_crush_at_coronation_memory_desc:0 ""
+  # --- common script/localization placeholders ---
+  missing_doctrine_placeholder:0 ""
+  missing_culturepillar_placeholder:0 ""
+  unknown_event_text:0 ""
+  # Add any new missing key here if log reports it later

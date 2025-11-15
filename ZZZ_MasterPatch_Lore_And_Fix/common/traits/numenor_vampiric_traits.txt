@@ -1,0 +1,53 @@
+﻿##########################################################
+# numenor_vampiric_traits.txt
+# Pale Lords, Midnight Covenant member trait, Sanguine Blight
+##########################################################
+
+# ELVEN: Pale Lord (rare, secret, powerful)
+pale_lord = {
+    icon = theurgy
+    is_good = no
+    description = "pale_lord_desc"
+    # Stats — tweak in playtesting if desired
+    diplomacy = 2
+    stewardship = 1
+    learning = 3
+    martial = 1
+    intrigue = 4
+    prestige = 150
+    monthly_prestige = 2.0
+    hidden = yes
+}
+
+# HUMAN: Sanguine Blight (corrupt imitation)
+sanguine_blight = {
+    icon = intrigue
+    is_good = no
+    description = "sanguine_blight_desc"
+    diplomacy = -1
+    stewardship = 0
+    learning = 1
+    martial = 3
+    intrigue = 2
+    prestige = 50
+    monthly_prestige = 0.5
+    hidden = yes
+}
+
+# Midnight Covenant exemplar (female-only secret police)
+midnight_covenant_member = {
+    icon = intrigue
+    is_good = no
+    description = "midnight_covenant_member_desc"
+    # Powerful template — use sparingly (defaults can be tuned)
+    diplomacy = 6
+    stewardship = 3
+    learning = 4
+    martial = 6
+    intrigue = 8
+    prestige = 400
+    monthly_prestige = 5.0
+    fertility = 0           # blocked fertility
+    hidden = yes
+    # Note: enforced gender filter is handled in decisions/events that grant this trait.
+}

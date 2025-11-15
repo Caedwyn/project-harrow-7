@@ -1,0 +1,58 @@
+﻿namespace = zzz_matriarch
+
+# Matriarch temptation / betrayal possibility
+character_event = {
+    id = zzz_matriarch.200
+    title = zzz_matriarch.200.t
+    desc = zzz_matriarch.200.d
+    trigger = {
+        is_ruler = yes
+        has_global_flag = age_reckoning_active
+        any_courtier = { has_character_modifier = grand_matriarch_reverence } # matriarch exists
+    }
+    mean_time_to_happen = { months = 60 }
+    option = {
+        name = zzz_matriarch.200.a_confront
+        create_event = { id = zzz_matriarch.201 days = 1 } # confrontation scene
+    }
+    option = {
+        name = zzz_matriarch.200.b.ignore
+        add_prestige = -50
+    }
+}
+
+# confrontation event (private)
+character_event = {
+    id = zzz_matriarch.201
+    title = zzz_matriarch.201.t
+    desc = zzz_matriarch.201.d
+    trigger = { is_player = yes }
+    option = {
+        name = zzz_matriarch.201.a_forgive
+        liege = { add_piety = 100 }
+        remove_character_modifier = { modifier = midnight_covenant_member } # forgiveness may shift alliances
+    }
+    option = {
+        name = zzz_matriarch.201.b_execute
+        liege = { add_prestige = 250 }
+        remove_character = { scope = event_target } # executes matriarch
+        create_event = { id = zzz_matriarch.210 days = 7 } # aftermath
+    }
+}
+
+# aftermath: coronate new matriarch or purge
+character_event = {
+    id = zzz_matriarch.210
+    title = zzz_matriarch.210.t
+    desc = zzz_matriarch.210.d
+    trigger = { is_player = yes }
+    option = {
+        name = zzz_matriarch.210.a_coronate
+        add_prestige = 150
+    }
+    option = {
+        name = zzz_matriarch.210.b_purge
+        add_prestige = 350
+        add_piety = -50
+    }
+}

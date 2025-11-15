@@ -1,0 +1,23 @@
+﻿# everguard_modifiers.txt
+# Character modifier(s) to lock down Everguard members (Phase 1)
+# Name prefix: everguard_mod_
+
+character_modifier = {
+    name = everguard_mod_fanatic_loyalty
+    is_permanent = yes
+    potential = {
+        always = yes
+    }
+    modifier = {
+        # Prevent schemes, factions, claims, etc. Large negatives to make coup impossible.
+        monthly_scheme_power_add = -1.00
+        can_join_factions = no
+        claim_everything_gain_chance = -1.00
+        monthly_piety = 0.00
+        monthly_prestige = 0.00
+        opinion_of_liege = 50
+    }
+    ai_will_do = {
+        factor = 0
+    }
+}

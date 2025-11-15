@@ -1,0 +1,40 @@
+﻿# Hidden elf wrapper trait
+trait_hidden_elf = {
+    opposite = none
+    inheritable = no
+    is_good = no
+    ai_will_do = { factor = 0 }
+    picture = GFX_trait_intrigue
+    description = "Hidden: mask and hood conceal your elven features."
+}
+
+# Midnight Covenant initiate (balanced values chosen)
+midnight_covenant_initiate = {
+    opposite = none
+    inheritable = no
+    is_good = yes
+    immortal = yes
+    ai_will_do = { factor = 0 }
+    picture = GFX_trait_intrigue
+    attraction_opinion = 25
+    prowess = 5
+    intrigue = 8
+    diplomacy = 3
+    learning = 2
+    scheme_power = 0.25
+    hostile_scheme_success_chance = 0.15
+    seduction_scheme_success_chance = 0.15
+    fertility = -0.75
+    dread_gain_mult = 0.1
+    description = "An initiate of the Midnight Covenant — graceful, immortal, and dangerously persuasive."
+}
+
+# flirtatious sister used for Sisters flavor
+trait_flirtatious_sister = {
+    inheritable = no
+    is_good = no
+    picture = GFX_trait_charismatic
+    attraction_opinion = 10
+    intrigue = 2
+    description = "A sister of the faith with a seductive manner; influential in courtly circles."
+}
